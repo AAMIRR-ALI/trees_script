@@ -45,7 +45,7 @@ rm -rf vendor/pixel-framework
 git clone git@github.com:RisingOS-staging/android_vendor_pixel-framework.git vendor/pixel-framework --depth=1
 }
 
-if [ -d $DT ] && [ -d $CT ] && [ -d $VT ] && [ -d $VCT ] && [ -d $KT ] && [ -d $HD ] ; then
+if [ -d $DT ] && [ -d $CT ] && [ -d $VDT ] && [ -d $VCT ] && [ -d $KT ] && [ -d $HD ] ; then
     echo -e "${blue}Trees exists, Skipping !${clear}"
 else
     clone_trees
@@ -57,11 +57,3 @@ clone_fw
 . build/envsetup.sh
 
 riseup bladerunner && rise ota
-
-
-
-
-
-
-
-
