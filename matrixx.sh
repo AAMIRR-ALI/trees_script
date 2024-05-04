@@ -13,22 +13,25 @@ HD=$PWD/hardware/oplus
 KT=$PWD/kernel/realme/sm8250
 
 clone_trees() {
-echo -e "${blue}dt cloning ${clear}"
+echo -e "${blue}Device Tree Cloning ${clear}"
 git clone git@github.com:Matrixx-Devices/device_realme_bladerunner.git -b wip device/realme/bladerunner
 git clone git@github.com:Matrixx-Devices/device_realme_sm8250-common.git -b big device/realme/sm8250-common
 
-echo -e "${blue}vt cloning${clear}"
+echo -e "${blue}Vendor Tree Cloning${clear}"
 git clone https://github.com/Matrixx-Devices/vendor_realme_bladerunner.git -b wip vendor/realme/bladerunner
 git clone git@github.com:Matrixx-Devices/vendor_realme_sm8250-common.git -b wip vendor/realme/sm8250-common
 
-echo -e "${blue}kt cloning ${clear}"
+echo -e "${blue}Kernel cloning ${clear}"
 git clone git@github.com:AAMIRR-ALI/bigshot_kernel_realme_sm8250.git kernel/realme/sm8250
 
-echo -e "${blue}HD cloning ${clear}"
+echo -e "${blue}Hardware cloning ${clear}"
 git clone git@github.com:Matrixx-Devices/hardware_oplus.git hardware/oplus
 
-echo -e "${blue}bcr cloning ${clear}"
+echo -e "${blue}BCR cloning ${clear}"
 git clone -b main https://github.com/Chaitanyakm/vendor_bcr.git vendor/bcr
+
+echo -e "${blue}Dolby cloning ${clear}"
+git clone git@github.com:AAMIRR-ALI/hardware_dolby.git hardware/dolby
 }
 
 if [ -d $DT ] && [ -d $CT ] && [ -d $VDT ] && [ -d $VCT ] && [ -d $KT ] && [ -d $HD ] ; then
