@@ -19,13 +19,13 @@ git clone git@github.com:Matrixx-Devices/device_realme_sm8250-common.git -b big 
 
 echo -e "${blue}Vendor Tree Cloning${clear}"
 git clone https://github.com/Matrixx-Devices/vendor_realme_bladerunner.git -b wip vendor/realme/bladerunner
-git clone git@github.com:Matrixx-Devices/vendor_realme_sm8250-common.git -b wip vendor/realme/sm8250-common
+git clone git@github.com:Matrixx-Devices/vendor_realme_sm8250-common.git -b wip2 vendor/realme/sm8250-common
 
 echo -e "${blue}Kernel cloning ${clear}"
-git clone git@github.com:AAMIRR-ALI/bigshot_kernel_realme_sm8250.git kernel/realme/sm8250
+git clone git@github.com:Matrixx-Devices/kernel_realme_sm8250.git kernel/realme/sm8250
 
 echo -e "${blue}Hardware cloning ${clear}"
-git clone git@github.com:Matrixx-Devices/hardware_oplus.git hardware/oplus
+git clone git@github.com:Matrixx-Devices/hardware_oplus.git hardware/oplus -b wip
 
 echo -e "${blue}BCR cloning ${clear}"
 git clone -b main https://github.com/Chaitanyakm/vendor_bcr.git vendor/bcr
