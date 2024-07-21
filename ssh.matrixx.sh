@@ -14,26 +14,28 @@ KT=$PWD/kernel/realme/sm8250
 
 clone_trees() {
 echo -e "${blue}Device Tree Cloning ${clear}"
-git clone https://github.com/Matrixx-Devices/device_realme_bladerunner.git -b udc device/realme/bladerunner
-git clone https://github.com/Matrixx-Devices/device_realme_sm8250-common.git -b udc device/realme/sm8250-common
-
+git clone git@github.com:Matrixx-Devices/device_realme_bladerunner.git -b wip device/realme/bladerunner
+git clone git@github.com:Matrixx-Devices/device_realme_sm8250-common.git -b wip device/realme/sm8250-common
 
 echo -e "${blue}Vendor Tree Cloning${clear}"
-git clone https://github.com/Matrixx-Devices/vendor_realme_bladerunner.git -b udc vendor/realme/bladerunner
-git clone https://github.com/Matrixx-Devices/vendor_realme_sm8250-common.git -b udc vendor/realme/sm8250-common
+git clone https://github.com/Matrixx-Devices/vendor_realme_bladerunner.git -b wip vendor/realme/bladerunner
+git clone git@github.com:Matrixx-Devices/vendor_realme_sm8250-common.git -b wip2 vendor/realme/sm8250-common
 
 echo -e "${blue}Kernel cloning ${clear}"
-git clone https://github.com/Matrixx-Devices/kernel_realme_sm8250.git kernel/realme/sm8250 --depth=1
+git clone git@github.com:Matrixx-Devices/kernel_realme_sm8250.git kernel/realme/sm8250 --depth=1
 cd kernel/realme/sm8250
 curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
 cd ../../..
 
 echo -e "${blue}Hardware cloning ${clear}"
 rm -rf hardware/oplus
-git clone https://github.com/Matrixx-Devices/hardware_oplus.git hardware/oplus -b wip
+git clone git@github.com:Matrixx-Devices/hardware_oplus.git hardware/oplus -b wip
 
 echo -e "${blue}Dolby cloning ${clear}"
-git clone https://github.com/AAMIRR-ALI/hardware_dolby.git hardware/dolby
+git clone git@github.com:AAMIRR-ALI/hardware_dolby.git hardware/dolby
+
+echo -e "${blue}Dolby cloning ${clear}"
+git clone git@github.com:AAMIRR-ALI/-new-packages_apps_ViPER4AndroidFX.git packages/apps/ViPER4AndroidFX
 }
 
 if [ -d $DT ] && [ -d $CT ] && [ -d $VDT ] && [ -d $VCT ] && [ -d $KT ] && [ -d $HD ] ; then
@@ -42,8 +44,6 @@ else
     clone_trees
 fi
 
-echo -e "${blue}FW cloning ${clear}"
-clone_fw
 
 . build/envsetup.sh
 

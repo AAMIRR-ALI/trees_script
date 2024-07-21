@@ -13,6 +13,7 @@ VCT=$PWD/vendor/realme/sm8250-common
 HD=$PWD/hardware/oplus
 KT=$PWD/kernel/realme/sm8250
 KT=$PWD/kernel/realme/sm8250/KernelSU
+DEFCONFIG=vendor/sm8250_defconfig
 FW=""
 KernelSU=""
 
@@ -38,21 +39,20 @@ git clone -b main https://github.com/Chaitanyakm/vendor_bcr.git vendor/bcr
 
 echo -e "${blue}Dolby cloning ${clear}"
 git clone git@github.com:AAMIRR-ALI/hardware_dolby.git hardware/dolby
+
+echo -e "${blue}Dolby cloning ${clear}"
+git clone git@github.com:AAMIRR-ALI/-new-packages_apps_ViPER4AndroidFX.git packages/apps/ViPER4AndroidFX
 }
 
 setup_ksu() {
     cd $KT
     curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
-    grep -q "CONFIG_MODULES=y" "arch/arm64/configs/$DEFCONFIG" || echo "CONFIG_MODULES=y" >> "arch/arm64/configs/$DEFCONFIG"
-    grep -q "CONFIG_KPROBES=y" "arch/arm64/configs/$DEFCONFIG" || echo "CONFIG_KPROBES=y" >> "arch/arm64/configs/$DEFCONFIG"
-    grep -q "CONFIG_HAVE_KPROBES=y" "arch/arm64/configs/$DEFCONFIG" || echo "CONFIG_HAVE_KPROBES=y" >> "arch/arm64/configs/$DEFCONFIG"
-    grep -q "CONFIG_KPROBE_EVENTS=y" "arch/arm64/configs/$DEFCONFIG" || echo "CONFIG_KPROBE_EVENTS=y" >> "arch/arm64/configs/$DEFCONFIG"
     cd $HOME
 }
 
 clone_fw(){
-rm -rf frameworks/base
-git clone git@github.com:RisingOS-staging/android_frameworks_base.git frameworks/base --depth=1
+#rm -rf frameworks/base
+#git clone git@github.com:RisingOS-staging/android_frameworks_base.git frameworks/base --depth=1
 
 rm -rf packages/apps/crDroidSettings
 git clone git@github.com:RisingOS-staging/android_packages_apps_Personalizations.git packages/apps/crDroidSettings
@@ -60,8 +60,8 @@ git clone git@github.com:RisingOS-staging/android_packages_apps_Personalizations
 rm -rf packages/apps/Settings
 git clone git@github.com:RisingOS-staging/android_packages_apps_Settings.git packages/apps/Settings --depth=1
 
-rm -rf vendor/pixel-framework
-git clone git@github.com:RisingOS-staging/android_vendor_pixel-framework.git vendor/pixel-framework --depth=1
+#rm -rf vendor/pixel-framework
+#git clone git@github.com:RisingOS-staging/android_vendor_pixel-framework.git vendor/pixel-framework --depth=1
 }
 
 if [ -d $DT ] && [ -d $CT ] && [ -d $VDT ] && [ -d $VCT ] && [ -d $KT ] && [ -d $HD ] ; then
@@ -93,13 +93,13 @@ else
 fi
 
 
-read -p "For Enable Press 1 Fow Fw clone: " FW
-if [ "$FW" == "1" ]
-then
-echo -e "${blue}FW cloning ${clear}"
-    clone_fw
-fi
+#read -p "For Enable Press 1 Fow Fw clone: " FW
+#if [ "$FW" == "1" ]
+#then
+#echo -e "${blue}FW cloning ${clear}"
+#    clone_fw
+#fi
 
 . build/envsetup.sh
 
-riseup bladerunner && rise ota
+riseup bladerunner && rise sb
