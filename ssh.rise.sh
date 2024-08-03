@@ -34,8 +34,11 @@ git clone git@github.com:Matrixx-Devices/hardware_oplus.git hardware/oplus -b wi
 echo -e "${blue}Dolby cloning ${clear}"
 git clone git@github.com:AAMIRR-ALI/hardware_dolby.git hardware/dolby
 
-echo -e "${blue}Dolby cloning ${clear}"
+echo -e "${blue}ViperX cloning ${clear}"
 git clone https://github.com/Chaitanyakm/packages_apps_ViPER4AndroidFX.git packages/apps/ViPER4AndroidFX
+
+echo -e "${blue}BCR cloning ${clear}"
+git clone https://github.com/Chaitanyakm/vendor_bcr.git vendor/bcr
 }
 
 clone_fw(){
