@@ -67,6 +67,6 @@ then
 echo -e "${blue}FW cloning ${clear}"
     clone_fw
 fi
-
+ccache -c
 . build/envsetup.sh
-riseup bladerunner && rise sb -j8
+riseup bladerunner && rise sb
