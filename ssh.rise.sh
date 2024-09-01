@@ -29,7 +29,7 @@ cd ../../..
 
 echo -e "${blue}Hardware cloning ${clear}"
 rm -rf hardware/oplus
-git clone git@github.com:Matrixx-Devices/hardware_oplus.git hardware/oplus -b wip
+git clone git@github.com:Matrixx-Devices/hardware_oplus.git hardware/oplus -b cr
 
 echo -e "${blue}Dolby cloning ${clear}"
 git clone git@github.com:AAMIRR-ALI/hardware_dolby.git hardware/dolby
@@ -37,22 +37,11 @@ git clone git@github.com:AAMIRR-ALI/hardware_dolby.git hardware/dolby
 echo -e "${blue}ViperX cloning ${clear}"
 git clone https://github.com/Chaitanyakm/packages_apps_ViPER4AndroidFX.git packages/apps/ViPER4AndroidFX
 
+echo -e "${blue}VancedManager cloning ${clear}"
+git clone https://github.com/AAMIRR-ALI/VancedManager.git packages/apps/VancedManager
+
 echo -e "${blue}BCR cloning ${clear}"
 git clone https://github.com/Chaitanyakm/vendor_bcr.git vendor/bcr
-}
-
-clone_fw(){
-rm -rf frameworks/base
-git clone git@github.com:RisingOS-staging/android_frameworks_base.git frameworks/base --depth=1
-
-rm -rf packages/apps/crDroidSettings
-git clone git@github.com:RisingOS-staging/android_packages_apps_Personalizations.git packages/apps/crDroidSettings
-
-rm -rf packages/apps/Settings
-git clone git@github.com:RisingOS-staging/android_packages_apps_Settings.git packages/apps/Settings --depth=1
-
-rm -rf vendor/pixel-framework
-git clone git@github.com:RisingOS-staging/android_vendor_pixel-framework.git vendor/pixel-framework --depth=1
 }
 
 if [ -d $DT ] && [ -d $CT ] && [ -d $VDT ] && [ -d $VCT ] && [ -d $KT ] && [ -d $HD ] ; then
@@ -61,12 +50,5 @@ else
     clone_trees
 fi
 
-read -p "For Enable Press 1 Fow Fw clone: " FW
-if [ "$FW" == "1" ]
-then
-echo -e "${blue}FW cloning ${clear}"
-    clone_fw
-fi
-ccache -c
 . build/envsetup.sh
-riseup bladerunner && rise sb
+riseup bladerunner user  && m installclean && rise b
