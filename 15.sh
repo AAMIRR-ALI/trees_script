@@ -39,6 +39,12 @@ git clone https://github.com/AAMIRR-ALI/VancedManager.git packages/apps/VancedMa
 
 echo -e "${blue}BCR cloning ${clear}"
 git clone https://github.com/Chaitanyakm/vendor_bcr.git vendor/bcr
+
+rm -rf hardware/qcom-caf/sm8250/audio
+git clone git@github.com:ALISPROJECTSS/hardware_qcom-caf_sm8250_audio.git hardware/qcom-caf/sm8250/audio
+
+rm -rf hardware/qcom-caf/sm8250/display
+git clone git@github.com:ALISPROJECTSS/hardware_qcom-caf_sm8250_display.git hardware/qcom-caf/sm8250/display
 }
 
 if [ -d $DT ] && [ -d $CT ] && [ -d $VDT ] && [ -d $VCT ] && [ -d $KT ] && [ -d $HD ] ; then
@@ -49,4 +55,4 @@ fi
 
 . build/envsetup.sh
 
-lunch aosp_bladerunner-ap3a-userdebug && export CCACHE_EXEC=$(which ccache) && export USE_CCACHE=1 && export CCACHE_DIR=/home/ali/.ccache/ && ccache -M 1000G && m installclean && mka bacon
+lunch aosp_bladerunner-ap3a-userdebug && export CCACHE_EXEC=$(which ccache) && export USE_CCACHE=1 && export CCACHE_DIR=/home/ali/.ccache/ && ccache -M 1000G
