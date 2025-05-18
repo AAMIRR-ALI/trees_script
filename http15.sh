@@ -20,7 +20,7 @@ clone_trees() {
 
 echo -e "${blue}Device Tree Cloning ${clear}"
 git clone https://github.com/AAMIRR-ALI/android_device_realme_bladerunner.git -b matrixx device/realme/bladerunner
-git clone https://github.com/AAMIRR-ALI/android_device_realme_sm8250-common.git -b rise-stable device/realme/sm8250-common
+git clone https://github.com/AAMIRR-ALI/android_device_realme_sm8250-common.git -b rise-stable device/realme/sm8250-common -b wip
 
 echo -e "${blue}Vendor Tree Cloning${clear}"
 git clone https://github.com/Matrixx-Devices/vendor_realme_bladerunner.git -b udc vendor/realme/bladerunner
@@ -35,8 +35,8 @@ git clone https://github.com/AAMIRR-ALI/bigshot_kernel_realme_sm8250.git kernel/
 echo -e "${blue}Dolby cloning ${clear}"
 git clone https://github.com/AAMIRR-ALI/old_dolby.git hardware/dolby
 
-#echo -e "${blue}ViperX cloning ${clear}"
-#git clone https://github.com/Chaitanyakm/packages_apps_ViPER4AndroidFX.git packages/apps/ViPER4AndroidFX
+echo -e "${blue}ViPER4AndroidFX cloning ${clear}"
+git clone git@github.com:AAMIRR-ALI/-new-packages_apps_ViPER4AndroidFX.git packages/apps/ViPER4AndroidFX
 
 }
 
