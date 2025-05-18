@@ -48,4 +48,4 @@ fi
 
 . build/envsetup.sh
 
-brunch bladerunner
+riseup bladerunner && rise sb
