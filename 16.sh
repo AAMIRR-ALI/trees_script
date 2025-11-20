@@ -30,10 +30,6 @@ git clone https://github.com/TogoFire/packages_apps_ViPER4AndroidFX.git packages
 git clone https://github.com/SM8250-Common/android_hardware_dolby.git hardware/dolby
 }
 
-if [ -d $DT ] && [ -d $VDT ] && [ -d $KT ] && [ -d $HD ] && [ -d $VX ] ; th
-    echo -e "${blue}Trees exists, Skipping !${clear}"
-else
-    clone_trees                                                                           
-fi
+clone_trees                                                                           
 
 . build/envsetup.sh && lunch lineage_bladerunner-bp3a-user
