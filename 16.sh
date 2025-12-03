@@ -17,7 +17,7 @@ clone_trees() {
 #echo -e "${blue}Extras Cloning ${clear}"
 #git clone git@github.com:AAMIRR-ALI/vendor_extras.git vendor/extras
 echo -e "${blue}Device Tree Cloning ${clear}"
-git clone https://github.com/AAMIRR-ALI/device_realme_2076.git -b 16new device/realme/bladerunner
+git clone https://github.com/AAMIRR-ALI/device_realme_2076.git -b 16.2 device/realme/bladerunner
 echo -e "${blue}Vendor Tree Cloning${clear}"
 git clone https://github.com/AAMIRR-ALI/vendor_realme_2076.git vendor/realme/bladerunner -b 16new
 echo -e "${blue}Hardware cloning ${clear}"
