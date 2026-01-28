@@ -21,13 +21,14 @@ git clone https://github.com/AAMIRR-ALI/device_realme_2076.git -b 16.2 device/re
 echo -e "${blue}Vendor Tree Cloning${clear}"
 git clone https://github.com/AAMIRR-ALI/vendor_realme_2076.git vendor/realme/bladerunner -b 16new
 echo -e "${blue}Hardware cloning ${clear}"
-git clone https://github.com/AAMIRR-ALI/android_hardware_oplus.git hardware/oplus -b 23.1
+git clone https://github.com/SM8250-Common/android_hardware_oplus.git hardware/oplus -b lineage-23.2
 echo -e "${blue}Kernel cloning ${clear}"
-git clone https://github.com/AAMIRR-ALI/kernel_realme_bladerunner.git kernel/realme/sm8250 -b lineage-23.0
+git clone https://github.com/bijoyv9/android_kernel_realme_sm8250.git kernel/realme/sm8250
 #git clone https://github.com/SM8250-Common/android_kernel_realme_sm8250.git kernel/realme/sm8250
 echo -e "${blue}ViPER4AndroidFX cloning ${clear}"
 git clone https://github.com/TogoFire/packages_apps_ViPER4AndroidFX.git packages/apps/ViPER4AndroidFX
-git clone https://github.com/SM8250-Common/android_hardware_dolby.git hardware/dolby
+echo -e "${blue}Dolby cloning ${clear}"
+git clone https://github.com/bijoyv9/hardware_dolby.git hardware/dolby
 }
 
 clone_trees                                                                           
