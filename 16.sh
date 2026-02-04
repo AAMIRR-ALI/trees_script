@@ -19,7 +19,7 @@ clone_trees() {
 echo -e "${blue}Device Tree Cloning ${clear}"
 git clone https://github.com/AAMIRR-ALI/device_realme_2076.git -b 16.2 device/realme/bladerunner
 echo -e "${blue}Vendor Tree Cloning${clear}"
-git clone https://github.com/AAMIRR-ALI/vendor_realme_2076.git vendor/realme/bladerunner -b 16new
+git clone https://github.com/AAMIRR-ALI/vendor_realme_2076.git vendor/realme/bladerunner -b 16.2
 echo -e "${blue}Hardware cloning ${clear}"
 git clone https://github.com/SM8250-Common/android_hardware_oplus.git hardware/oplus -b lineage-23.2
 echo -e "${blue}Kernel cloning ${clear}"
@@ -32,5 +32,3 @@ git clone https://github.com/bijoyv9/hardware_dolby.git hardware/dolby
 }
 
 clone_trees                                                                           
-
-. build/envsetup.sh && lunch lineage_bladerunner-bp3a-user
