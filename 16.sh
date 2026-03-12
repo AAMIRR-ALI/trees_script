@@ -1,5 +1,6 @@
 #!/bin/bash
-red='\033[0;31m'                                                                          green='\033[0;32m'
+red='\033[0;31m'                                                                          
+green='\033[0;32m'
 yellow='\033[0;33m'
 blue='\033[0;34m'
 clear='\033[0m'
@@ -21,10 +22,9 @@ git clone https://github.com/AAMIRR-ALI/device_realme_2076.git -b 16.2 device/re
 echo -e "${blue}Vendor Tree Cloning${clear}"
 git clone https://github.com/AAMIRR-ALI/vendor_realme_2076.git vendor/realme/bladerunner -b 16.2
 echo -e "${blue}Hardware cloning ${clear}"
-git clone https://github.com/SM8250-Common/android_hardware_oplus.git hardware/oplus -b lineage-23.2
+git clone https://github.com/AAMIRR-ALI/android_hardware_oplus.git -b lineage-23.2
 echo -e "${blue}Kernel cloning ${clear}"
-git clone https://github.com/bijoyv9/android_kernel_realme_sm8250.git kernel/realme/sm8250
-#git clone https://github.com/SM8250-Common/android_kernel_realme_sm8250.git kernel/realme/sm8250
+git clone https://github.com/AAMIRR-ALI/kernel_realme_bladerunner.git kernel/realme/sm8250 -b Entropy-1.0
 echo -e "${blue}ViPER4AndroidFX cloning ${clear}"
 git clone https://github.com/TogoFire/packages_apps_ViPER4AndroidFX.git packages/apps/ViPER4AndroidFX
 echo -e "${blue}Dolby cloning ${clear}"
@@ -32,3 +32,8 @@ git clone https://github.com/bijoyv9/hardware_dolby.git hardware/dolby
 }
 
 clone_trees                                                                           
+
+git remote add yt https://github.com/PixelLineage/frameworks_base.git
+git fetch yt
+
+git cherry-pick 076076fed18f080ffd3ec2b51026f4164d87f1f6 1a7e975607fe3b70b49ca84726fb06ac216c62ef
