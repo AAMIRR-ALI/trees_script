@@ -5,6 +5,7 @@ yellow='\033[0;33m'
 blue='\033[0;34m'
 clear='\033[0m'
 
+
 DT=$PWD/device/realme/bladerunner
 CT=$PWD/device/realme/sm8250-common
 VDT=$PWD/vendor/realme/bladerunner
@@ -12,7 +13,9 @@ VCT=$PWD/vendor/realme/sm8250-common
 HD=$PWD/hardware/oplus
 KT=$PWD/kernel/realme/sm8250
 VX=$PWD/packages/apps/ViPER4AndroidFX
-Dolby=$PWD/hardware/dolby
+DBY=$PWD/hardware/dolby
+
+rm -rf "$DT" "$CT" "VDT" "VCT" "HD" "KT" "DBY"
 
 clone_trees() {
 #echo -e "${blue}Extras Cloning ${clear}"
@@ -33,7 +36,10 @@ git clone https://github.com/bijoyv9/hardware_dolby.git hardware/dolby
 
 clone_trees                                                                           
 
+cd frameworks/base
 git remote add yt https://github.com/PixelLineage/frameworks_base.git
 git fetch yt
 
 git cherry-pick 076076fed18f080ffd3ec2b51026f4164d87f1f6 1a7e975607fe3b70b49ca84726fb06ac216c62ef
+
+cd ../..
