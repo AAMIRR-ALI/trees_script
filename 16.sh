@@ -77,6 +77,8 @@ if [ "$YT" = "1" ] || [ "$YT" = "y" ]; then
     safe_cherry_pick "${COMMITS[@]}"
 
     cd ../..
+    
+    clone_trees || exit 1
 else
     echo "Skipping yt init..."
     cd frameworks/base
