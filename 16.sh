@@ -46,7 +46,6 @@ read -r YT
 echo "You entered: $YT"
 
 if [ "$YT" = "1" ] || [ "$YT" = "y" ]; then
-echo "ifffff"
     
     git clone https://gitlab.com/AAMIRR-ALI/vendor-revanced.git vendor/revanced
     cd vendor/revanced
@@ -56,8 +55,8 @@ echo "ifffff"
     cd ../..
     
     cd frameworks/base
-    git remote add yt https://github.com/PixelLineage/frameworks_base.git
-    git fetch yt
+    git remote add yt https://github.com/PixelLineage/frameworks_base.git 2>/dev/null || \
+    git remote set-url yt https://github.com/PixelLineage/frameworks_base.git
     git cherry-pick 076076fed18f080ffd3ec2b51026f4164d87f1f6 1a7e975607fe3b70b49ca84726fb06ac216c62ef
 
     cd ../..
