@@ -14,8 +14,9 @@ HD=$PWD/hardware/oplus
 KT=$PWD/kernel/realme/sm8250
 VX=$PWD/packages/apps/ViPER4AndroidFX
 DBY=$PWD/hardware/dolby
+OTA=$PWD/vendor/official_devices
 
-rm -rf "$DT" "$CT" "VDT" "VCT" "HD" "KT" "DBY"
+rm -rf "$DT" "$CT" "VDT" "VCT" "HD" "KT" "DBY" "OTA"
 
 clone_trees() {
 #echo -e "${blue}Extras Cloning ${clear}"
@@ -32,6 +33,8 @@ echo -e "${blue}ViPER4AndroidFX cloning ${clear}"
 git clone https://github.com/TogoFire/packages_apps_ViPER4AndroidFX.git packages/apps/ViPER4AndroidFX
 echo -e "${blue}Dolby cloning ${clear}"
 git clone https://github.com/bijoyv9/hardware_dolby.git hardware/dolby
+echo -e "${blue}AX-OTA cloning ${clear}"
+git clone https://github.com/AAMIRR-ALI/OTA_AX.git vendor/official_devices
 }
 
 clone_trees                                                                           
