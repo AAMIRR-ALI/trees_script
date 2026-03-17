@@ -41,38 +41,52 @@ echo -e "${blue}AX-OTA cloning ${clear}"
 git clone https://github.com/AAMIRR-ALI/OTA_AX.git vendor/official_devices
 }
 
+# Function to apply a commit safely
+safe_cherry_pick() {
+    for commit in "$@"; do
+        # Check if commit is already in current branch
+        if git cherry -v | grep -q "^+ $commit"; then
+            echo "Applying commit $commit..."
+            git cherry-pick "$commit" || {
+                echo "Cherry-pick failed. Resolve conflicts manually."
+                exit 1
+            }
+        else
+            echo "Commit $commit already applied. Skipping."
+        fi
+    done
+}
+
 echo "Init yt? (1 = yes, anything else = no)"
 read -r YT
 echo "You entered: $YT"
+
+COMMITS=("076076fed18f080ffd3ec2b51026f4164d87f1f6" "1a7e975607fe3b70b49ca84726fb06ac216c62ef")
 
 if [ "$YT" = "1" ] || [ "$YT" = "y" ]; then
     
     git clone https://gitlab.com/AAMIRR-ALI/vendor-revanced.git vendor/revanced
     cd vendor/revanced
-
     ./extract-libs.sh
-
     cd ../..
     
     cd frameworks/base
     git remote add yt https://github.com/PixelLineage/frameworks_base.git 2>/dev/null || \
     git remote set-url yt https://github.com/PixelLineage/frameworks_base.git
-    git cherry-pick 076076fed18f080ffd3ec2b51026f4164d87f1f6 1a7e975607fe3b70b49ca84726fb06ac216c62ef
+
+    safe_cherry_pick "${COMMITS[@]}"
+
+    cd ../..
+else
+    echo "Skipping yt init..."
+    cd frameworks/base
+    git remote add yt https://github.com/PixelLineage/frameworks_base.git 2>/dev/null || \
+    git remote set-url yt https://github.com/PixelLineage/frameworks_base.git
+    git fetch yt
+
+    safe_cherry_pick "${COMMITS[@]}"
 
     cd ../..
     
-    
-	
-
-else
-	echo "else1111"
-	cd frameworks/base
-	git remote add yt https://github.com/PixelLineage/frameworks_base.git
-	git fetch yt
-
-	git cherry-pick 076076fed18f080ffd3ec2b51026f4164d87f1f6 1a7e975607fe3b70b49ca84726fb06ac216c62ef
-
-	cd ../..
-	
-	clone_trees || exit 1
+    clone_trees || exit 1
 fi
