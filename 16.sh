@@ -64,7 +64,7 @@ echo "You entered: $YT"
 COMMITS=("076076fed18f080ffd3ec2b51026f4164d87f1f6" "1a7e975607fe3b70b49ca84726fb06ac216c62ef")
 
 if [ "$YT" = "1" ] || [ "$YT" = "y" ]; then
-    
+    clone_trees
     git clone https://gitlab.com/AAMIRR-ALI/vendor-revanced.git vendor/revanced
     cd vendor/revanced
     ./extract-libs.sh
@@ -78,7 +78,6 @@ if [ "$YT" = "1" ] || [ "$YT" = "y" ]; then
 
     cd ../..
     
-    clone_trees || exit 1
 else
     echo "Skipping yt init..."
     cd frameworks/base
@@ -90,5 +89,5 @@ else
 
     cd ../..
     
-    clone_trees || exit 1
+    clone_trees
 fi
