@@ -47,7 +47,7 @@ echo "You entered: $YT"
 
 if [ "$YT" = "1" ] || [ "$YT" = "y" ]; then
     git clone https://gitlab.com/AAMIRR-ALI/vendor-revanced.git vendor/revanced
-    cd vendor/revanced || exit 1
+    cd vendor/revanced
 
     ./extract-libs.sh
 
@@ -61,10 +61,9 @@ if [ "$YT" = "1" ] || [ "$YT" = "y" ]; then
     cd ../..
     
     
-    clone_trees || exit 1	
+	
 
 else
-	clone_trees
 	
 	cd frameworks/base
 	git remote add yt https://github.com/PixelLineage/frameworks_base.git
@@ -73,4 +72,6 @@ else
 	git cherry-pick 076076fed18f080ffd3ec2b51026f4164d87f1f6 1a7e975607fe3b70b49ca84726fb06ac216c62ef
 
 	cd ../..
+	
+	clone_trees || exit 1
 fi
