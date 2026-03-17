@@ -30,7 +30,7 @@ done
 
 clone_trees() {
 #echo -e "${blue}Extras Cloning ${clear}"
-git clone git@github.com:AAMIRR-ALI/vendor_extras.git vendor/extras
+#git clone git@github.com:AAMIRR-ALI/vendor_extras.git vendor/extras
 echo -e "${blue}Device Tree Cloning ${clear}"
 git clone https://github.com/AAMIRR-ALI/device_realme_2076.git -b 16.2 device/realme/bladerunner
 echo -e "${blue}Vendor Tree Cloning${clear}"
@@ -38,7 +38,7 @@ git clone https://github.com/AAMIRR-ALI/vendor_realme_2076.git vendor/realme/bla
 echo -e "${blue}Hardware cloning ${clear}"
 git clone https://github.com/AAMIRR-ALI/android_hardware_oplus.git hardware/oplus -b lineage-23.2
 echo -e "${blue}Kernel cloning ${clear}"
-#git clone https://github.com/AAMIRR-ALI/kernel_realme_bladerunner.git kernel/realme/sm8250 -b Entropy-1.0
+git clone https://github.com/AAMIRR-ALI/kernel_realme_bladerunner.git kernel/realme/sm8250 -b Entropy-1.0
 echo -e "${blue}ViPER4AndroidFX cloning ${clear}"
 git clone https://github.com/TogoFire/packages_apps_ViPER4AndroidFX.git packages/apps/ViPER4AndroidFX
 echo -e "${blue}Dolby cloning ${clear}"
