@@ -43,6 +43,7 @@ git clone https://github.com/AAMIRR-ALI/OTA_AX.git vendor/official_devices
 
 echo "Init yt? (1 = yes, anything else = no)"
 read -r YT
+echo "You entered: $YT"
 
 if [ "$YT" = "1" ] || [ "$YT" = "y" ]; then
     git clone https://gitlab.com/AAMIRR-ALI/vendor-revanced.git vendor/revanced
