@@ -6,33 +6,39 @@ blue='\033[0;34m'
 clear='\033[0m'
 
 
-DT=$PWD/device/realme/bladerunner
-CT=$PWD/device/realme/sm8250-common
-VDT=$PWD/vendor/realme/bladerunner
-VCT=$PWD/vendor/realme/sm8250-common
-HD=$PWD/hardware/oplus
-KT=$PWD/kernel/realme/sm8250
-VX=$PWD/packages/apps/ViPER4AndroidFX
-DBY=$PWD/hardware/dolby
-OTA=$PWD/vendor/official_devices
-
-rm -rf "$DT" "$CT" "VDT" "VCT" "HD" "KT" "DBY" "OTA"
-
+# list of folders
+DIRS=(
+    "$PWD/device/realme"
+    "$PWD/vendor/realme"
+    "$PWD/hardware/oplus"
+    "$PWD/kernel/realme/sm8250"
+    "$PWD/packages/apps/ViPER4AndroidFX"
+    "$PWD/hardware/dolby"
+    "$PWD/vendor/official_devices"
+)
 
 
+for dir in "${DIRS[@]}"; do
+    if [ -d "$dir" ]; then
+        echo "Removing $dir"
+        rm -rf "$dir"
+    else
+        echo "Skipping missing folder: $dir"
+    fi
+done
 
 
 clone_trees() {
 #echo -e "${blue}Extras Cloning ${clear}"
 #git clone git@github.com:AAMIRR-ALI/vendor_extras.git vendor/extras
 echo -e "${blue}Device Tree Cloning ${clear}"
-git clone https://github.com/AAMIRR-ALI/device_realme_2076.git -b 16.2 device/realme/bladerunner
+#git clone https://github.com/AAMIRR-ALI/device_realme_2076.git -b 16.2 device/realme/bladerunner
 echo -e "${blue}Vendor Tree Cloning${clear}"
 git clone https://github.com/AAMIRR-ALI/vendor_realme_2076.git vendor/realme/bladerunner -b 16.2
 echo -e "${blue}Hardware cloning ${clear}"
 git clone https://github.com/AAMIRR-ALI/android_hardware_oplus.git hardware/oplus -b lineage-23.2
 echo -e "${blue}Kernel cloning ${clear}"
-git clone https://github.com/AAMIRR-ALI/kernel_realme_bladerunner.git kernel/realme/sm8250 -b Entropy-1.0
+#git clone https://github.com/AAMIRR-ALI/kernel_realme_bladerunner.git kernel/realme/sm8250 -b Entropy-1.0
 echo -e "${blue}ViPER4AndroidFX cloning ${clear}"
 git clone https://github.com/TogoFire/packages_apps_ViPER4AndroidFX.git packages/apps/ViPER4AndroidFX
 echo -e "${blue}Dolby cloning ${clear}"
