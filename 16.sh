@@ -79,6 +79,7 @@ if [ "$YT" = "1" ] || [ "$YT" = "y" ]; then
     cd frameworks/base
     git remote add yt https://github.com/PixelLineage/frameworks_base.git 2>/dev/null || \
     git remote set-url yt https://github.com/PixelLineage/frameworks_base.git
+    git fetch yt
 
     safe_cherry_pick "${COMMITS[@]}"
 
